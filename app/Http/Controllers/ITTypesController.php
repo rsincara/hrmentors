@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ITType;
+use App\Models\Entities\ITType;
 
 class ITTypesController extends Controller
 {

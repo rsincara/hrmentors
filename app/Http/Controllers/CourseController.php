@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Course;
-use Illuminate\Http\Request;
+use App\Models\Entities\Course;
 
 class CourseController extends Controller
 {
@@ -18,4 +17,5 @@ class CourseController extends Controller
 
         return $course ?? response()->json(['message' => 'Not Found!'], 404);
     }
+
 }
