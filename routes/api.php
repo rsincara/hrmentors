@@ -32,17 +32,25 @@ Route::group([
 
 });
 
-Route::get('/it_types', [ITTypesController::class, 'getITTypes']);
-Route::get('/it_types/{id}', [ITTypesController::class, 'getITType']);
-
-Route::get('/courses', [CourseController::class, 'getCourses']);
-Route::get('/courses/{id}', [CourseController::class, 'getCourse']);
-
 Route::group([
-    'prefix' => 'dev'
+    'prefix' => 'it_types'
 ], function () {
-    Route::get('/developers', [UserController::class, 'getDevelopers']);
+    Route::get('', [ITTypesController::class, 'getITTypes']);
+    Route::get('/{id}', [ITTypesController::class, 'getITType']);
 });
 
+Route::group([
+    'prefix' => 'courses'
+], function () {
+    Route::get('', [CourseController::class, 'getCourses']);
+    Route::get('/{id}', [CourseController::class, 'getCourse']);
+});
+
+Route::group([
+    'prefix' => 'developers'
+], function () {
+    Route::get('', [\App\Http\Controllers\UserController::class, 'getDevelopers']);
+    Route::get('/{id}', [\App\Http\Controllers\UserController::class, 'getDeveloper']);
+});
 
 Route::get('/test', [\App\Http\Controllers\TestController::class, 'test']);
