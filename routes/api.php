@@ -38,6 +38,11 @@ Route::get('/it_types/{id}', [ITTypesController::class, 'getITType']);
 Route::get('/courses', [CourseController::class, 'getCourses']);
 Route::get('/courses/{id}', [CourseController::class, 'getCourse']);
 
-Route::get('/developers', [\App\Http\Controllers\UserController::class, 'getDevelopers']);
+Route::group([
+    'prefix' => 'dev'
+], function () {
+    Route::get('/developers', [UserController::class, 'getDevelopers']);
+});
+
 
 Route::get('/test', [\App\Http\Controllers\TestController::class, 'test']);

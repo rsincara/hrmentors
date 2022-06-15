@@ -12,10 +12,9 @@ use function Sodium\add;
 
 class UserController extends Controller
 {
-    // post
-    public function subscribeDeveloperToCourse()
+    public function __construct()
     {
-
+        $this->middleware('auth:api', ['except' => []]);
     }
 
     public function getDevelopers()
