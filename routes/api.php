@@ -26,8 +26,15 @@ Route::group([
     Route::post('/logout', [\App\Http\Controllers\AuthController::class, 'logout']);
     Route::post('/refresh', [\App\Http\Controllers\AuthController::class, 'refresh']);
     Route::post('/me', [\App\Http\Controllers\AuthController::class, 'me']);
+
 //    Route::post('/registration', 'AuthController@registration');
 //    Route::post('/logout', 'AuthController@logout');
 //    Route::post('/refresh', 'AuthController@refresh');
 //    Route::post('/me', 'AuthController@me');
 });
+
+Route::get('/it_types', [\App\Http\Controllers\ITTypesController::class, 'getITTypes']);
+Route::get('/it_types/{id}', [\App\Http\Controllers\ITTypesController::class, 'getITType']);
+
+Route::get('/courses', [\App\Http\Controllers\CourseController::class, 'getCourses']);
+Route::get('/courses/{id}', [\App\Http\Controllers\CourseController::class, 'getCourse']);
